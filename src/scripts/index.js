@@ -6,7 +6,7 @@ import { DEVICES, NOTIFICATIONS, LABELS } from './constants';
 import { cssVar, isValidUrl, enhanceUrl, getProxyURL, getParameterByName, canEmbedInIframe } from './helpers';
 import { state, settings } from './state';
 import { notification } from './notification';
-import { getAlternativeURL } from './amp-canonical-detector';
+// import { getAlternativeURL } from './amp-canonical-detector';
 
 // REFERENCES
 const $container = document.getElementById('diff-container');
@@ -204,33 +204,33 @@ $inputRight.addEventListener('input', debounce((event) => {
 }, 700));
 
 // AMP DETECTION
-$ampDetectButton.addEventListener('click', function () {
-    var checkAmp = this.classList.toggle('mode-switch--amp');
-    if (checkAmp && (isValidUrl($inputLeft.value) || isValidUrl($inputRight.value))) {
+// $ampDetectButton.addEventListener('click', function () {
+//     var checkAmp = this.classList.toggle('mode-switch--amp');
+//     if (checkAmp && (isValidUrl($inputLeft.value) || isValidUrl($inputRight.value))) {
 
-        const value = isValidUrl($inputLeft.value) ? $inputLeft.value : $inputRight.value;
-        const target = isValidUrl($inputLeft.value) ? $inputRight : $inputLeft;
+//         const value = isValidUrl($inputLeft.value) ? $inputLeft.value : $inputRight.value;
+//         const target = isValidUrl($inputLeft.value) ? $inputRight : $inputLeft;
 
-        getAlternativeURL(value, 'amphtml')
-            .then(url => {
-                target.value = url;
-                target.dispatchEvent(new Event('input'));
-                this.classList.remove('mode-switch--amp');
-            })
-            .catch(_error => {
-                return getAlternativeURL(value, 'canonical');
-            })
-            .then(url => {
-                target.value = url;
-                target.dispatchEvent(new Event('input'));
-                this.classList.remove('mode-switch--amp');
-            })
-            .catch(_error => {
-                this.classList.remove('mode-switch--amp');
-                alert('AMP or canonical pendant was not found.');
-            });
-    }
-});
+//         getAlternativeURL(value, 'amphtml')
+//             .then(url => {
+//                 target.value = url;
+//                 target.dispatchEvent(new Event('input'));
+//                 this.classList.remove('mode-switch--amp');
+//             })
+//             .catch(_error => {
+//                 return getAlternativeURL(value, 'canonical');
+//             })
+//             .then(url => {
+//                 target.value = url;
+//                 target.dispatchEvent(new Event('input'));
+//                 this.classList.remove('mode-switch--amp');
+//             })
+//             .catch(_error => {
+//                 this.classList.remove('mode-switch--amp');
+//                 alert('AMP or canonical pendant was not found.');
+//             });
+//     }
+// });
 
 // DARK MODE
 document.getElementById('toggle-dark-mode').addEventListener('click', () => {

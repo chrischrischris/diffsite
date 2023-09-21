@@ -3,13 +3,13 @@
  * https://github.com/Antoinebr/compare-amp
  */
 
-import isURL from 'validator/lib/isURL';
+// import isURL from 'validator/lib/isURL';
 
 /**
  * @name corsFree
  * @description return a HTML page content by bypassing CORS
  * @param {string|url} sourceURL the URL to 'descorsify"
- * @returns {promise|erorr} will return a promise or error 
+ * @returns {promise|erorr} will return a promise or error
  */
 
 const corsFree = function (sourceURL) {
@@ -31,9 +31,9 @@ const corsFree = function (sourceURL) {
 /**
  * @name searchForLinkRelValue
  * @summary will parse a HTML page as string and return the first link rel="${}" It will only work on front-end ( DOMParser only exists in navigator)
- * @param {string} fetchedPage 
- * @param {string} linkRelType 
- * @returns {url || false} the URL of false 
+ * @param {string} fetchedPage
+ * @param {string} linkRelType
+ * @returns {url || false} the URL of false
  */
 const searchForLinkRelValueInHTML = (HTMLasString, linkRelType) => {
 
@@ -63,7 +63,7 @@ const searchForLinkRelValueInHTML = (HTMLasString, linkRelType) => {
  * @summary return the AMP URL from the cannonical URL or the opposite (this function should be used on front-end only)
  * @param {string} sourceURL URL ( could be the cannonical URL or the AMP url)
  * @param {string} linkRelType the linkRelType amp-html,canonical...
- * @returns {Promise || error} the promise will contain the alternative URL 
+ * @returns {Promise || error} the promise will contain the alternative URL
  */
 export const getAlternativeURL = function (sourceURL, linkRelType) {
 
@@ -73,9 +73,9 @@ export const getAlternativeURL = function (sourceURL, linkRelType) {
             return reject(Error(`We expected a string as sourceURL we got ${typeof sourceURL}`));
         }
 
-        if (!isURL(sourceURL)) {
-            return reject(Error(`We expected an URL we got ${sourceURL}`));
-        }
+        // if (!isURL(sourceURL)) {
+        //     return reject(Error(`We expected an URL we got ${sourceURL}`));
+        // }
 
         if (typeof linkRelType !== "string") {
             return reject(Error(`We expected a string as linkRelType we got ${typeof linkRelType}`));
