@@ -43,6 +43,16 @@ export const DEVICES = [
         name: 'iPad Pro',
         width: 1024,
         height: 1366
+    },
+    {
+        name: 'Desktop',
+        width: 1250,
+        height: 1250,
+    },
+    {
+        name: 'Desktop Large',
+        width: 1500,
+        height: 1250,
     }
 ];
 
