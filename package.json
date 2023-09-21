@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pianomister/diffsite.git"
+    "url": "git+https://github.com/chrischrischris/diffsite.git"
   },
   "keywords": [
     "diffsite",
@@ -18,10 +18,10 @@
     "website",
     "overlay"
   ],
-  "author": "pianomister",
+  "author": "chrischrischris",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pianomister/diffsite/issues"
+    "url": "https://github.com/chrischrischris/diffsite/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
